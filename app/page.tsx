@@ -17,9 +17,10 @@ import {
   WORK_EXPERIENCE,
   BLOG_POSTS,
   EMAIL,
-  SOCIAL_LINKS,
+  SOCIAL_LINKS, EDUCATIONAL_EXPERIENCE,
 } from './data'
 import JobCard from '@/components/ui/job-card'
+import EducationCard from '@/components/ui/education-card'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -182,6 +183,16 @@ export default function Personal() {
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
             <JobCard key={job.id} job={job} />
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 text-lg font-medium">Education</h3>
+
+        <div className="flex flex-col space-y-2">
+          {EDUCATIONAL_EXPERIENCE.map((edu) => (
+            <EducationCard key={edu.id} edu={edu} />
           ))}
         </div>
       </motion.section>

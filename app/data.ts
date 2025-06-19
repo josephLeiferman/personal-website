@@ -1,4 +1,4 @@
-type Project = {
+export type Project = {
   name: string
   description: string
   link: string
@@ -15,14 +15,24 @@ export type WorkExperience = {
   description: string
 }
 
-type BlogPost = {
+export type EducationExperience = {
+  id: string
+  school: string
+  program: string
+  location: string
+  start: string
+  end: string
+  description: string
+}
+
+export type BlogPost = {
   title: string
   description: string
   link: string
   uid: string
 }
 
-type SocialLink = {
+export type SocialLink = {
   label: string
   link: string
 }
@@ -112,6 +122,35 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Vertica for T ableau reporting. The data pipeline was further optimized by\n' +
       'transitioning from full to incremental loads.'
   }
+]
+
+export const EDUCATIONAL_EXPERIENCE: EducationExperience[] = [
+  {
+    id: 'undergraduateDegree',
+    school: 'University of Iowa',
+    program: 'B.S. in Computer Science',
+    location: 'Iowa City, Iowa',
+    start: '2014',
+    end: '2018',
+    description: 'Completed foundational and advanced coursework in algorithms, data\n' +
+      'structures, software engineering, and systems programming. Gained\n' +
+      'practical experience through team-based projects and individual work, with\n' +
+      'exposure to areas such as databases, computer architecture, and web\n' +
+      'development.'
+  },
+  {
+    id: 'mastersDegree',
+    school: 'University of Illinois',
+    program: 'M.S. in Computer Science',
+    location: 'Champaign, Illinois',
+    start: 'May 2024',
+    end: 'May 2026',
+    description: 'Pursuing advanced coursework in machine learning, natural language\n' +
+      'processing, computer vision, and parallel computing, with an emphasis on\n' +
+      'applied AI techniques and scalable systems. Gaining hands-on experience\n' +
+      'through projects that apply deep learning, reinforcement learning, and\n' +
+      'distributed data processing to real-world problems.'
+  },
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
