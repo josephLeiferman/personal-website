@@ -17,8 +17,8 @@ const EducationCard: React.FC<Props> = ({ edu }) => {
       className="relative cursor-pointer overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] transition-shadow hover:shadow-md dark:bg-zinc-600/30"
     >
       <Spotlight
-        className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-        size={64}
+        className="from-blue-950 via-blue-700 to-blue-300 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+        size={400}
       />
 
       <div className="relative w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">

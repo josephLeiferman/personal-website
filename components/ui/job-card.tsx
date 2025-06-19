@@ -18,8 +18,8 @@ const JobCard: React.FC<Props> = ({ job }) => {
       onClick={() => setOpen((prev) => !prev)}
     >
       <Spotlight
-        className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-        size={64}
+        className="from-blue-950 via-blue-700 to-blue-300 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+        size={400}
       />
 
       <div className="relative w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">

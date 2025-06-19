@@ -100,7 +100,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'government solutions, including DMV, property tax, and citation services.\n' +
       'Worked closely with product, design, and implementation teams to deliver\n' +
       'customized, production-ready features on aggressive timelines. Focused on\n' +
-      'building scalable, maintainable code that met regulatory and client-specific\n + ' +
+      'building scalable, and easy to maintain code that met regulatory and client-specific\n' +
       'requirements. Played a key role in ensuring successful launches by aligning\n' +
       'engineering output with operational readiness and client expectations.'
   },

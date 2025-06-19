@@ -1,30 +1,40 @@
 'use client'
-import { TextEffect } from '@/components/ui/text-effect'
-import Link from 'next/link'
+import { TextScramble } from '@/components/motion-primitives/text-scramble';
+import { TiltSpotlight } from '@/components/header/tilt-spotlight'
 
 export function Header() {
   return (
-    <header className="mb-8 flex items-center justify-between">
+    <header className="mb-8 flex flex-col gap-6
+                       sm:flex-row sm:items-start
+                       sm:justify-between">
+
       <div>
-        <TextEffect
-          as="p"
-          preset="fade"
-          per="char"
-          className="text-black font-bold"
-          delay={0.1}
+        <TextScramble
+          as="h1"
+          className="text-zinc-800 font-bold dark:text-zinc-100 text-3xl"
+          duration={1.5}
         >
           Joseph Leiferman
-        </TextEffect>
-        <TextEffect
-          as="p"
-          preset="fade"
-          per="char"
-          className="text-zinc-600 dark:text-zinc-500"
-          delay={0.7}
+        </TextScramble>
+        <TextScramble
+          as="h2"
+          className="text-zinc-700 dark:text-zinc-300 text-xl"
+          duration={2.5}
         >
           Senior Software Engineer
-        </TextEffect>
+        </TextScramble>
+        <TextScramble
+          as="h2"
+          className="text-zinc-700 dark:text-zinc-300 text-lg"
+          duration={3.5}
+        >
+          Los Angeles, California
+        </TextScramble>
       </div>
+      <div className="hidden sm:block mx-auto w-64 shrink-0 sm:mx-0">
+        <TiltSpotlight />
+      </div>
+
     </header>
   )
 }
