@@ -6,12 +6,12 @@ type Project = {
   id: string
 }
 
-type WorkExperience = {
+export type WorkExperience = {
+  id: string
   company: string
   title: string
   start: string
   end: string
-  id: string
   description: string
 }
 
@@ -54,7 +54,15 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'September 2024',
     end: 'Present',
     id: 'work1',
-    description: ''
+    description: 'Lead engineer on the Platform Integrations team, responsible for scaling and\n' +
+      'maintaining critical ingestion pipelines. Spearheaded the development of\n' +
+      'automated production smoke tests using Cypress.io to proactively detect\n' +
+      'incidents. Led efforts to implement blue/green deployments for seamless\n' +
+      'database updates. Expanded flat file integration support to Canada to meet\n' +
+      'regional data protection requirements. Designed and deployed a new\n' +
+      'ingestion process that improved performance by 5x. Maintained and\n' +
+      'enhanced distributed tracing with Honeycomb, and implemented\n' +
+      'performance-based alerting to ensure integration reliability.'
   },
   {
     company: 'PayIt',
@@ -62,7 +70,15 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'June 2023',
     end: 'September 2024',
     id: 'work2',
-    description: ''
+    description: 'Lead engineering efforts to transition legacy clients from custom\n' +
+      'implementations to standardized platform solutions. Oversee a team\n' +
+      'responsible for identifying migration paths, reducing technical debt, and\n' +
+      'enabling long-term scalability. Successfully migrated three of our largest and\n' +
+      'most complex clients, improving maintainability and aligning them with core\n' +
+      'platform capabilities. Collaborate closely with product, client success, and\n' +
+      'integration teams to ensure smooth transitions and consistent adoption.\n' +
+      'Drive process improvements and tooling to streamline onboarding and\n' +
+      'accelerate future migrations.'
   },
   {
     company: 'PayIt',
@@ -70,7 +86,13 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'January 2021',
     end: 'June 2023',
     id: 'work3',
-    description: ''
+    description: 'Led engineering efforts for go-to-market launches of state and local\n' +
+      'government solutions, including DMV, property tax, and citation services.\n' +
+      'Worked closely with product, design, and implementation teams to deliver\n' +
+      'customized, production-ready features on aggressive timelines. Focused on\n' +
+      'building scalable, maintainable code that met regulatory and client-specific\n + ' +
+      'requirements. Played a key role in ensuring successful launches by aligning\n' +
+      'engineering output with operational readiness and client expectations.'
   },
   {
     company: 'Cerner Corporation',
@@ -78,7 +100,17 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'July 2018',
     end: 'January 2021',
     id: 'work4',
-    description: ''
+    description: 'Focused on a Ruby on Rails web application and its supporting analytics\n' +
+      'pipeline within the Revenue Cycle organization. Responsibilities included\n' +
+      'contributing to a value-based reimbursement platform aimed at reducing\n' +
+      'healthcare costs, leading the migration of infrastructure from on-premise to\n' +
+      'AWS to improve scalability and reliability, and implementing automated\n' +
+      'deployment pipelines using Spinnaker and Jenkins. Additional efforts\n' +
+      'involved integrating React components to enhance frontend performance,\n' +
+      'introducing automated accessibility scans, and developing an Apache\n' +
+      'Crunch-based ETL process to move and transform data from MySQL to\n' +
+      'Vertica for T ableau reporting. The data pipeline was further optimized by\n' +
+      'transitioning from full to incremental loads.'
   }
 ]
 
