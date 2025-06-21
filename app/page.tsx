@@ -21,6 +21,7 @@ import {
 } from './data'
 import JobCard from '@/components/ui/job-card'
 import EducationCard from '@/components/ui/education-card'
+import { SpinningText } from '@/components/motion-primitives/spinning-text'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -149,7 +150,44 @@ export default function Personal() {
         </div>
       </motion.section>
 
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
+        <div className="flex flex-col space-y-2">
+          {WORK_EXPERIENCE.map((job) => (
+            <JobCard key={job.id} job={job} />
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 text-lg font-medium">Education</h3>
+
+        <div className="flex flex-col space-y-2">
+          {EDUCATIONAL_EXPERIENCE.map((edu) => (
+            <EducationCard key={edu.id} edu={edu} />
+          ))}
+        </div>
+      </motion.section>
+
       {/* Add Back once new videos have been created*/}
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 text-lg font-medium">Side Projects</h3>
+        <div className="flex flex-col space-y-4">
+          <SpinningText
+            radius={5}
+            fontSize={.75}
+            duration={10}
+            transition={{
+              ease: 'easeInOut',
+              repeat: Infinity,
+            }}
+            className='font-medium leading-none'
+          >
+            {`Soon to come • You're here early •`}
+          </SpinningText>
+        </div>
+      </motion.section>
+
       {/*<motion.section*/}
       {/*  variants={VARIANTS_SECTION}*/}
       {/*  transition={TRANSITION_SECTION}*/}
@@ -179,60 +217,53 @@ export default function Personal() {
       {/*  </div>*/}
       {/*</motion.section>*/}
 
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
-        <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
-            <JobCard key={job.id} job={job} />
-          ))}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-3 text-lg font-medium">Blog Posts</h3>
+        <div className="flex flex-col space-y-4">
+          <SpinningText
+            radius={5}
+            fontSize={.75}
+            duration={10}
+            transition={{
+              ease: 'easeInOut',
+              repeat: Infinity,
+            }}
+            className='font-medium leading-none'
+          >
+            {`Soon to come • You're here early •`}
+          </SpinningText>
+          {/*<AnimatedBackground*/}
+          {/*  enableHover*/}
+          {/*  className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"*/}
+          {/*  transition={{*/}
+          {/*    type: 'spring',*/}
+          {/*    bounce: 0,*/}
+          {/*    duration: 0.2,*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  {BLOG_POSTS.map((post) => (*/}
+          {/*    <Link*/}
+          {/*      key={post.uid}*/}
+          {/*      className="-mx-3 rounded-xl px-3 py-3"*/}
+          {/*      href={post.link}*/}
+          {/*      data-id={post.uid}*/}
+          {/*    >*/}
+          {/*      <div className="flex flex-col space-y-1">*/}
+          {/*        <h4 className="font-normal dark:text-zinc-100">*/}
+          {/*          {post.title}*/}
+          {/*        </h4>*/}
+          {/*        <p className="text-zinc-500 dark:text-zinc-400">*/}
+          {/*          {post.description}*/}
+          {/*        </p>*/}
+          {/*      </div>*/}
+          {/*    </Link>*/}
+          {/*  ))}*/}
+          {/*</AnimatedBackground>*/}
         </div>
       </motion.section>
-
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-        <h3 className="mb-5 text-lg font-medium">Education</h3>
-
-        <div className="flex flex-col space-y-2">
-          {EDUCATIONAL_EXPERIENCE.map((edu) => (
-            <EducationCard key={edu.id} edu={edu} />
-          ))}
-        </div>
-      </motion.section>
-
-      {/*<motion.section*/}
-      {/*  variants={VARIANTS_SECTION}*/}
-      {/*  transition={TRANSITION_SECTION}*/}
-      {/*>*/}
-      {/*  <h3 className="mb-3 text-lg font-medium">Blog</h3>*/}
-      {/*  <div className="flex flex-col space-y-0">*/}
-      {/*    <AnimatedBackground*/}
-      {/*      enableHover*/}
-      {/*      className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"*/}
-      {/*      transition={{*/}
-      {/*        type: 'spring',*/}
-      {/*        bounce: 0,*/}
-      {/*        duration: 0.2,*/}
-      {/*      }}*/}
-      {/*    >*/}
-      {/*      {BLOG_POSTS.map((post) => (*/}
-      {/*        <Link*/}
-      {/*          key={post.uid}*/}
-      {/*          className="-mx-3 rounded-xl px-3 py-3"*/}
-      {/*          href={post.link}*/}
-      {/*          data-id={post.uid}*/}
-      {/*        >*/}
-      {/*          <div className="flex flex-col space-y-1">*/}
-      {/*            <h4 className="font-normal dark:text-zinc-100">*/}
-      {/*              {post.title}*/}
-      {/*            </h4>*/}
-      {/*            <p className="text-zinc-500 dark:text-zinc-400">*/}
-      {/*              {post.description}*/}
-      {/*            </p>*/}
-      {/*          </div>*/}
-      {/*        </Link>*/}
-      {/*      ))}*/}
-      {/*    </AnimatedBackground>*/}
-      {/*  </div>*/}
-      {/*</motion.section>*/}
 
       <motion.section
         variants={VARIANTS_SECTION}
