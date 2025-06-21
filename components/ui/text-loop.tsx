@@ -23,8 +23,8 @@ export type TextLoopProps = {
 export function TextLoop({
   children,
   className,
-  interval = 2,
-  transition = { duration: 0.3 },
+  interval = 4,
+  transition = { duration: 0.5 },
   variants,
   onIndexChange,
   trigger = true,

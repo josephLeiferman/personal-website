@@ -21,7 +21,7 @@ const EducationCard: React.FC<Props> = ({ edu }) => {
         size={400}
       />
 
-      <div className="relative w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+      <div className="relative w-full rounded-[15px] bg-neutral-50 p-4 dark:bg-zinc-900">
         <div className="flex justify-between">
           <div>
             <h4 className="font-normal dark:text-zinc-100">{edu.program}</h4>

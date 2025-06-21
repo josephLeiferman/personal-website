@@ -1,6 +1,5 @@
 'use client';
 
-import { Spotlight } from '@/components/motion-primitives/spotlight';
 import { Tilt } from '@/components/motion-primitives/tilt';
 
 export function TiltSpotlight() {

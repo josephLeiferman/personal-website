@@ -140,7 +140,7 @@ export const EDUCATIONAL_EXPERIENCE: EducationExperience[] = [
   },
   {
     id: 'mastersDegree',
-    school: 'University of Illinois',
+    school: 'University of Illinois Urbana-Champaign',
     program: 'M.S. in Computer Science',
     location: 'Champaign, Illinois',
     start: 'May 2024',
