@@ -22,7 +22,10 @@ export const metadata: Metadata = {
     default: 'Joseph Leiferman',
     template: '%s | Joseph'
   },
-  description:  'A personal website template built with Next.js 15, React 19 and Motion-Primitives.',
+  description:  'A personal website built with Next.js 15, React 19 and Motion-Primitives.',
+  verification: {
+    google: 'z2UvW6sJHg1io54w5HstRoUm4WePsRkEW0ca8OkZ8zM'
+  }
 };
 
 const geist = Geist({
