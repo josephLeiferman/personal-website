@@ -169,7 +169,38 @@ export default function Personal() {
         </div>
       </motion.section>
 
-      {/* Add Back once new videos have been created*/}
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-3 text-lg font-medium">Blog Posts</h3>
+
+        <div className="flex flex-col space-y-4">
+            {BLOG_POSTS.map((post) => (
+              <motion.div
+                key={post.uid}
+                layout
+                whileHover={{ scale: 1.01 }}
+                className="relative overflow-hidden cursor-pointer rounded-2xl bg-zinc-300/30 p-[1px] transition-shadow hover:shadow-md dark:bg-zinc-600/30"
+              >
+                <Spotlight
+                  className="from-blue-950 via-blue-700 to-blue-300 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                  size={400}
+                />
+
+                <Link
+                  href={post.link}
+                  className="relative block w-full rounded-[15px] bg-neutral-50 p-4 dark:bg-zinc-900"
+                  data-id={post.uid}
+                >
+                  <div className="flex flex-col space-y-1">
+                    <h4 className="font-normal dark:text-zinc-100">{post.title}</h4>
+                    <p className="text-zinc-500 dark:text-zinc-400">{post.description}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+        </div>
+      </motion.section>
+
+      {/* Add Back later been created*/}
       <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Side Projects</h3>
         <div className="flex flex-col space-y-4">
@@ -216,54 +247,6 @@ export default function Personal() {
       {/*    ))}*/}
       {/*  </div>*/}
       {/*</motion.section>*/}
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-3 text-lg font-medium">Blog Posts</h3>
-        <div className="flex flex-col space-y-4">
-          <SpinningText
-            radius={5}
-            fontSize={.75}
-            duration={10}
-            transition={{
-              ease: 'easeInOut',
-              repeat: Infinity,
-            }}
-            className='font-medium leading-none'
-          >
-            {`Soon to come • You're here early •`}
-          </SpinningText>
-          {/*<AnimatedBackground*/}
-          {/*  enableHover*/}
-          {/*  className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"*/}
-          {/*  transition={{*/}
-          {/*    type: 'spring',*/}
-          {/*    bounce: 0,*/}
-          {/*    duration: 0.2,*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  {BLOG_POSTS.map((post) => (*/}
-          {/*    <Link*/}
-          {/*      key={post.uid}*/}
-          {/*      className="-mx-3 rounded-xl px-3 py-3"*/}
-          {/*      href={post.link}*/}
-          {/*      data-id={post.uid}*/}
-          {/*    >*/}
-          {/*      <div className="flex flex-col space-y-1">*/}
-          {/*        <h4 className="font-normal dark:text-zinc-100">*/}
-          {/*          {post.title}*/}
-          {/*        </h4>*/}
-          {/*        <p className="text-zinc-500 dark:text-zinc-400">*/}
-          {/*          {post.description}*/}
-          {/*        </p>*/}
-          {/*      </div>*/}
-          {/*    </Link>*/}
-          {/*  ))}*/}
-          {/*</AnimatedBackground>*/}
-        </div>
-      </motion.section>
 
       <motion.section
         variants={VARIANTS_SECTION}

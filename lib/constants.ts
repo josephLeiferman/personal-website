@@ -1,1 +1,1 @@
-export const WEBSITE_URL = 'https://www.josephleiferman.dev';
+export const WEBSITE_URL = 'j';

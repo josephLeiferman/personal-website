@@ -155,22 +155,10 @@ export const EDUCATIONAL_EXPERIENCE: EducationExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    title: 'Blog Post 1',
-    description: 'Blog Description 1',
+    title: 'Performance Testing Java',
+    description: 'An insight into testing Java applications with performance in mind.',
     link: '/blog/example-mdx-metadata',
     uid: 'blog-1',
-  },
-  {
-    title: 'Blog Post 2',
-    description: 'Blog Description 2',
-    link: '/blog/example-mdx-metadata',
-    uid: 'blog-2',
-  },
-  {
-    title: 'Blog Post 3',
-    description: 'Blog Description 3',
-    link: '/blog/example-mdx-metadata',
-    uid: 'blog-3',
   },
 ]
 
