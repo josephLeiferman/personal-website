@@ -157,7 +157,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     title: 'Performance Testing Java',
     description: 'An insight into testing Java applications with performance in mind.',
-    link: '/blog/example-mdx-metadata',
+    link: '/blog/java-performance-testing',
     uid: 'blog-1',
   },
 ]
