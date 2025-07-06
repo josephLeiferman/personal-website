@@ -6,8 +6,81 @@ export const metadata = {
 
 # Java Performance Testing
 
+>The most amazing achievement of the computer software industry is its continuing cancellation of the steady and staggering
+gains made by the computer hardware industry. [1]
 
 
+While I don't agree with the above quote completely, there are elements to this that ring true. In my experience the quest
+to pursue faster and faster delivery of product features has lead to the delivery of inefficient solutions to the problems we
+attempt to solve. To compound that if we are doing our job well as a software engineers we are also thinking about how to build
+a solution that will be easy to maintain over time, which can also lead to focusing more on maintainability vs performance.
+In this post I'd like to discuss the times when we do get to or ought to focus on performance,
+where we take a step back and think about what we want to deliver, how that delivery should perform, and lastly how can we
+verify it meets the benchmarks we set out to meet. Whether it's a new service, a new feature, or perhaps incorporating a
+new technology into your stack.
+
+What inspired this post is something I recently came across with a move from Java 8 to Java 17 in a key part of our platform,
+and along with that upgrade we incorporated Observability in the form of tracing. As part of this upgrade we wanted to
+ensure various performance metrics were not only maintained, but improved before rolling out this upgrade to other services
+in this part of our platform. Before we dive in let's discuss some of these metrics and what they mean, because not all
+of them are commonly discussed when talking about performance.
+
+## Observable Performance Metrics
+
+The key performance metrics I would like to run through are:
+* Throughput
+* Latency
+* Capacity
+* Utilization
+* Efficiency
+* Scalability
+* Degradation
+
+
+**Throughput**
+
+Throughput measures the rate at which a system completes work, often expressed in units per time (e.g., transactions per second).
+It provides a direct sense of a system’s capacity to handle load and must be contextualized with the platform and test setup to be meaningful.
+
+**Latency**
+
+Latency is the time it takes for a unit of work to complete — how long it takes from initiation to response.
+Lower latency typically implies better responsiveness but doesn’t necessarily equate to higher throughput.
+
+**Capacity**
+
+Capacity refers to the maximum load a system can handle concurrently — how much work it can process in parallel.
+It’s tightly linked to available resources and system architecture.
+
+**Utilization**
+
+Utilization indicates how efficiently system resources (CPU, memory, etc.) are being used. High utilization can imply efficiency
+but may also signal resource saturation, while low utilization could mean underuse or idle resources.
+
+
+**Efficiency**
+
+Efficiency is the ratio of useful work output to resource input. A system is efficient if it delivers high throughput and/or
+low latency with minimal resource consumption and cost.
+
+
+**Scalability**
+
+Scalability assesses how well a system handles increasing workload or resource addition.
+A scalable system maintains or improves performance as it scales, whether vertically (more powerful machine) or horizontally (more machines).
+
+
+**Degradation**
+
+Degradation refers to how system performance deteriorates under load or stress. Robust systems degrade gracefully,
+maintaining acceptable service levels as conditions worsen, rather than failing abruptly.
+
+
+## Establishing Testing Goals
+\
+\
+\
+-- Joseph Leiferman, (publish date here)
 
 ## Further Reading
 - [Optimizing Cloud Native Java](https://www.oreilly.com/library/view/optimizing-cloud-native/9781098149338/)
@@ -15,4 +88,4 @@ export const metadata = {
 
 ---
 
-_This blog post is currently a work in progress._
+[1] This quote can be attributed to Henry Petroski
