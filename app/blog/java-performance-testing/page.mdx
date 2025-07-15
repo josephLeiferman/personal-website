@@ -13,7 +13,7 @@ gains made by the computer hardware industry. [1]
 While I don't agree with the above quote completely, there are elements to this that ring true. In my experience the quest
 to pursue faster and faster delivery of product features has lead to the delivery of inefficient solutions to the problems we
 attempt to solve. To compound that if we are doing our job well as a software engineers we are also thinking about how to build
-a solution that will be easy to maintain over time, which can also lead to focusing more on maintainability vs performance.
+a solution that will be easy to maintain over time, which can also lead to focusing more on maintainability versus performance.
 In this post I'd like to discuss the times when we do get to or ought to focus on performance,
 where we take a step back and think about what we want to deliver, how that delivery should perform, and lastly how can we
 verify it meets the benchmarks we set out to meet. Whether it's a new service, a new feature, or perhaps incorporating a
@@ -77,10 +77,86 @@ maintaining acceptable service levels as conditions worsen, rather than failing 
 
 
 ## Establishing Testing Goals
+
+In many cases, but not all, performance testing is being done as part of a some sort of change. In my case it was upgrading from
+Java 8 to Java 17. So I needed to establish what was the current baseline performance before beginning any work towards the
+upgrade. The baseline performance testing was absolutely crucial to performance testing with a scientific approach versus
+going off of a 'vibe' as I've seen many times before. Once you have a baseline you can then establish goals for you performance
+upgrades, ask yourself which key performance metric would you like to improve and by what amount would be considered a success.
+I urge you to focus on only a few metrics at a time, as often times that is all that can be done without incorporating too broad of changes.
+In fact many times in long-lived projects optimizing for one metric may actually cause the degradation of another.
+
+Because of the nature of change I was pursuing, the business goals of the upgrade was not to improve performance, but instead
+improve security and support. So I ended up with the following goal:
+
+
+> Throughput, Latency, and Capacity see zero degradation with the move from Java 8 to Java 17
+
+Once you have your testing goal. You'll be ready to do your baseline system test, implement your changes, and you'll be
+on to retesting and verifying.
+
+
+## Testing Types, Tips and Tools
+
+There are many different performance tests one can perform on a system, and in most cases it's beneficial to perform
+a suite of these tests. Let's go over some of them, and what they are generally used for as some of these test names get used
+interchangeably when the intent of tests are actually different.
+
+**Stress Test**
+A stress test pushes a system beyond its capacity to observe how it fails. It’s used to reveal hard limits, stability issues,
+or bottlenecks under extreme conditions that may not show up during normal usage.
+
+**Load Test**
+Load tests simulate expected usage levels, often mimicking peak real-world demand, to verify that the system meets performance
+goals under normal and heavy conditions without failure or unacceptable latency.
+
+**Endurance Test**
+Endurance tests assess how a system behaves under sustained load over long periods. They reveal memory leaks, slow resource exhaustion,
+and other issues that only appear after extended uptime.
+
+So we have a few different tests we can perform, there are even more out there that you can read up on like degradation and
+capacity planning tests.
+
+Next let's talk about tools you can use to do performance testing. Two that I have used in the past are [Apache JMeter](https://jmeter.apache.org/)
+and believe it or not [Postman](https://learning.postman.com/docs/collections/performance-testing/testing-api-performance/). I find Postman easier
+for non-technical people to setup and use, whilst JMeter is more feature rich. You should investigate what will work best for your needs or perhaps
+there are better tools out there now.
+
+Lastly a tip for performance testing all measurements contain some amount of error, so you should always perform your tests
+multiple times and then average out any results you get out of it. According to *Statistically Rigorous Java Performance Evaluation* [2]
+that number is 30 times!
+
+## Comparing Baseline Performance to Baseline + Modifications
+
+Okay the time has come for you to compare your testing results to the baseline measurements you gathered prior to your
+modifications to verify the changes you made had the effects you intended. It may be tempting to take any improvement (or regression)
+at face value, but you should first determine is this change statistically significant. In short statistically significance can help
+determine if the result you received was due to chance or to some factor of interest (the modifications you made). A shorthand way of doing
+this is as follows:
+
+1. Compute mean and standard deviation
+- For each metric:
+  - Calculate mean and standard deviation (σ).
+  - If you're comparing two implementations (A and B), do this for both.
+
+2. Look at overlap
+- Compute mean ± 2×σ for both groups (i.e., 95% confidence interval).
+- If the confidence intervals do not overlap, you can reasonably infer the difference is statistically significant.
+
+3. Rule of Thumb for Practical Significance
+- If performance improves or degrades by >10% consistently, it's often worth acting on, regardless of formal significance.
+
+
+## Conclusion
+
+Performance work isn’t glamorous, and it often gets sidelined in favor of faster delivery or easier maintenance.
+But as this post has hopefully shown, there are moments in a system’s lifecycle — like a major Java version upgrade — when performance deserves focused attention.
+In those moments, it’s essential to approach testing methodically: define clear goals, understand which metrics matter, baseline before you optimize,
+and validate your changes with rigor, not gut feel.
+
 \
 \
-\
--- Joseph Leiferman, (publish date here)
+-- Joseph Leiferman *July 14th, 2025*
 
 ## Further Reading
 - [Optimizing Cloud Native Java](https://www.oreilly.com/library/view/optimizing-cloud-native/9781098149338/)
@@ -88,4 +164,5 @@ maintaining acceptable service levels as conditions worsen, rather than failing 
 
 ---
 
-[1] This quote can be attributed to Henry Petroski
+[1] This quote can be attributed to Henry Petroski \
+[2] [PDF on this research](https://www.researchgate.net/publication/200039331_Statistically_Rigorous_Java_Performance_Evaluation)
